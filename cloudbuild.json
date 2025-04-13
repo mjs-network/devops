@@ -5,18 +5,21 @@
       "entrypoint": "bash",
       "args": [
         "-c",
-        "apt update && apt install -y git openssh-client && \
-         mkdir -p ~/.ssh && \
-         echo \"$SSH_PRIVATE_KEY\" > ~/.ssh/id_rsa && \
-         chmod 600 ~/.ssh/id_rsa && \
-         ssh-keyscan github.com >> ~/.ssh/known_hosts && \
-         git clone git@github.com:mjs-network/devops.git && \
-         cd devops && \
-         ls -l"
+        "apt update && apt install -y git openssh-client && \\\n" +
+        "mkdir -p ~/.ssh && \\\n" +
+        "echo \"$SSH_PRIVATE_KEY\" > ~/.ssh/id_rsa && \\\n" +
+        "chmod 600 ~/.ssh/id_rsa && \\\n" +
+        "ssh-keyscan github.com >> ~/.ssh/known_hosts && \\\n" +
+        "git clone git@github.com:mjs-network/devops.git && \\\n" +
+        "cd devops && \\\n" +
+        "ls -l"
       ],
       "env": [
         "SSH_PRIVATE_KEY=${_SSH_PRIVATE_KEY}"
       ]
     }
-  ]
+  ],
+  "substitutions": {
+    "_SSH_PRIVATE_KEY": "YOUR_SSH_PRIVATE_KEY_HERE"
+  }
 }
