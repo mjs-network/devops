@@ -18,8 +18,5 @@
         "SSH_PRIVATE_KEY=${_SSH_PRIVATE_KEY}"
       ]
     }
-  ],
-  "substitutions": {
-    "_SSH_PRIVATE_KEY": "YOUR_SSH_PRIVATE_KEY_HERE"
-  }
+  ]
 }
