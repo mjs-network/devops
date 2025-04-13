@@ -5,18 +5,24 @@
       "entrypoint": "bash",
       "args": [
         "-c",
-        "apt update && apt install -y git openssh-client && \\\n" +
-        "mkdir -p ~/.ssh && \\\n" +
-        "echo \"$SSH_PRIVATE_KEY\" > ~/.ssh/id_rsa && \\\n" +
-        "chmod 600 ~/.ssh/id_rsa && \\\n" +
-        "ssh-keyscan github.com >> ~/.ssh/known_hosts && \\\n" +
-        "git clone git@github.com:mjs-network/devops.git && \\\n" +
-        "cd devops && \\\n" +
+        "apt update && apt install -y git openssh-client && " +
+        "mkdir -p ~/.ssh && " +
+        "echo \"$SSH_PRIVATE_KEY\" > ~/.ssh/id_rsa && " +
+        "chmod 600 ~/.ssh/id_rsa && " +
+        "ssh-keyscan github.com >> ~/.ssh/known_hosts && " +
+        "git clone git@github.com:mjs-network/devops.git && " +
+        "cd devops && " +
         "ls -l"
       ],
       "env": [
         "SSH_PRIVATE_KEY=${_SSH_PRIVATE_KEY}"
       ]
     }
-  ]
+  ],
+  "substitutions": {
+    "_SSH_PRIVATE_KEY": "-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZWQyNTUxOQAAACDKjyCSJMfsuckPYfIB79laRYJ5jeULPS8NB+jD2khKDQAAAJBLvbeuS723rgAAAAtzc2gtZWQyNTUxOQAAACDKjyCSJMfsuckPYfIB79laRYJ5jeULPS8NB+jD2khKDQAAAEBRWzkmV8GyKtuK8r8JIva2xFOb7bbjSJaP3qNTU0WIxcqPIJIkx+y5yQ9h8gHv2VpFgnmN5Qs9Lw0H6MPaSEoNAAAACWthbGlAa2FsaQECAwQ=
+-----END OPENSSH PRIVATE KEY-----
+"
+  }
 }
